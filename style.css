@@ -1,28 +1,70 @@
-function snow(){
-    const snow = document.createElement("div");
-    snow.classList.add("snow");
-    snow.style.left=Math.random()*100+"vw";
-    snow.style.animationDuration=Math.random()*2+3;
-    snow.innerText="❄️";
-    document.body.appendChild(snow);
-    setTimeout(() => {
-        snow.remove();
-    },3000)
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-function snowMedium(){
-    const snowMedium = document.createElement("div");
-    snowMedium.classList.add("snowMedium");
-    snowMedium.style.left=Math.random()*105+"vw";
-    snowMedium.style.animationDuration=Math.random()*2+3;
-    snowMedium.innerText="❄️";
-    snowMedium.style.fontSize ="13px"
-    document.body.appendChild(snowMedium);
-    setTimeout(() => {
-        snowMedium.remove();
-    },3000)
+button{
     
+    font-size:300px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-setInterval(snowMedium, 200);
-setInterval(snow, 200);
-//set background color
-document.body.style.background = "black";
+button:hover{
+    
+    text-shadow: -4px 0 #2F5D73, 0 4px #2F5D73, 4px 0 #2F5D73, 0 -4px #2F5D73;
+}
+button:hover p{
+    display: flex;
+    font-size: 25px;
+    width: 300px;
+    height: 50px;
+    text-shadow: -1px 0 #4287A7, 0 1px #4287A7, 1px 0 #4287A7, 0 -1px #4287A7;
+    position: absolute;
+    top: 55%;
+    left: 65%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+p{
+    display: none;
+}
+.snow{
+    position: fixed;
+    top: 1vh;
+    font-size: 20px;
+    animation: rain 2s linear forwards;
+    transition: transform 3s;
+}
+.snowMedium{
+    position: fixed;
+    top: 1vh;
+    font-size: 20px;
+    animation: rain 1s linear forwards;
+    transition: transform 3s;
+}
+.spin-once {
+    font-family: cursive;
+    color: #13262F;
+    transform: rotate(180deg);
+    animation: spin-once-animation 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+}
+
+@keyframes spin-once-animation {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rain{
+    to{
+        transform: translateY(105vh);
+    }
+}
